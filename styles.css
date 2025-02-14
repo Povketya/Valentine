@@ -5,8 +5,8 @@
     box-sizing: border-box;
   }
   
-  /* Set a base font size for easier scaling */
   html {
+    /* Setting a base font size for consistent rem values */
     font-size: 16px;
   }
   
@@ -22,10 +22,10 @@
     min-height: 100vh;
     text-align: center;
     flex-direction: column;
-    position: relative; /* Needed for pseudo-element positioning */
+    position: relative;
   }
   
-  /* Ensure all img elements are responsive */
+  /* Ensure images are responsive */
   img {
     max-width: 100%;
     height: auto;
@@ -41,7 +41,7 @@
     height: 100%;
     background: url('zk.jpg') no-repeat center center;
     background-size: cover;
-    opacity: 0.3; /* Adjust opacity as desired */
+    opacity: 0.3;
     z-index: -1;
   }
   
@@ -52,14 +52,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* let clicks pass through */
+    pointer-events: none;
     z-index: 0;
   }
   
-  /* Decorative images with a responsive width using clamp */
+  /* Decorative images with fixed size */
   .decorative-img {
     position: absolute;
-    width: clamp(50px, 10vw, 80px); /* Scales between 50px and 80px */
+    width: 80px;
     height: auto;
     animation: float 6s ease-in-out infinite;
   }
@@ -88,25 +88,25 @@
     z-index: 1;
     width: 90%;
     max-width: 600px;
-    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-    padding: 1.25rem; /* 20px equivalent */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     border-radius: 10px;
   }
   
-  /* Static heart (no animation) with responsive sizing */
+  /* Static heart (no animation) */
   .heart {
-    font-size: clamp(2.5rem, 5vw, 5rem); /* roughly between 40px and 80px */
+    font-size: 5rem; /* 80px if base font size is 16px */
   }
   
   /* Headings and message */
   h1 {
-    margin-top: 1.25rem;
-    font-size: clamp(1.75rem, 4vw, 2.25rem); /* approx 28px to 36px */
+    margin-top: 20px;
+    font-size: 2.25rem; /* 36px */
   }
   
   .message {
-    font-size: clamp(1.25rem, 3vw, 1.5rem); /* approx 20px to 24px */
-    margin: 1.25rem auto;
+    font-size: 1.5rem; /* 24px */
+    margin: 20px auto;
     line-height: 1.5;
   }
   
@@ -115,73 +115,47 @@
     background-color: #ff69b4;
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem; /* roughly 12px 24px */
-    font-size: clamp(1rem, 2vw, 1.25rem); /* approx 16px to 20px */
+    padding: 12px 24px;
+    font-size: 1.25rem; /* 20px */
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 1.875rem; /* 30px */
+    margin-top: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  /* On hover, scale up and add a soft glow */
   button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
   
-  /* When pressed (active), briefly scale down for a click effect */
   button:active {
     transform: scale(0.95);
     box-shadow: none;
   }
   
-  /* Question container with relative positioning for the No button to move around */
+  /* Question container for the No button */
   .questionDiv {
-    margin-top: 2.5rem; /* 40px */
+    margin-top: 40px;
     display: none;
     position: relative;
-    min-height: 9.375rem; /* 150px */
+    min-height: 150px;
   }
   
-  /* Option buttons share the base button styles, just smaller margins */
+  /* Option buttons share base styles */
   .optionButton {
-    margin: 0.625rem; /* 10px */
+    margin: 10px;
   }
   
-  /* Specifically for the No button: absolute so it can jump around */
+  /* No button positioned absolutely for movement */
   .no {
     position: absolute;
-    /* Animate position changes in JS; smooth movement with transition */
     transition: left 0.5s ease, top 0.5s ease;
   }
   
   /* Result styling */
   #result {
-    margin-top: 1.25rem;
-    font-size: clamp(1.75rem, 3vw, 1.75rem);
+    margin-top: 20px;
+    font-size: 1.75rem; /* 28px */
     font-weight: bold;
-  }
-  
-  /* Additional responsive adjustments */
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.75rem;
-    }
-    .message {
-      font-size: 1.25rem;
-    }
-    .heart {
-      font-size: 2.5rem;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
   }
   
