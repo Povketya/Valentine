@@ -6,7 +6,6 @@
   }
   
   html {
-    /* Base font size */
     font-size: 16px;
   }
   
@@ -179,9 +178,9 @@
       margin-top: 20px;
     }
     
-    /* Reduce decorative images size on small screens */
-    .decorative-img {
-      width: 60px !important;
+    /* Hide decorative images on small screens to improve clarity */
+    .decorative-container {
+      display: none;
     }
   }
   
