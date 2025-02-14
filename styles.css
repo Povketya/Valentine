@@ -6,12 +6,13 @@
   }
   
   html {
+    /* Setting a base font size for consistent rem values */
     font-size: 16px;
   }
   
   body {
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    font-family: 'Poiret One', Arial, sans-serif;
+    font-family: ' Poiret One', Arial, sans-serif;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -55,7 +56,7 @@
     z-index: 0;
   }
   
-  /* Decorative images with fixed size and gentle floating animation */
+  /* Decorative images with fixed size */
   .decorative-img {
     position: absolute;
     width: 80px;
@@ -64,11 +65,21 @@
   }
   
   @keyframes float {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(15px, 0); }
-    50% { transform: translate(15px, 15px); }
-    75% { transform: translate(0, 15px); }
-    100% { transform: translate(0, 0); }
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(15px, 0);
+    }
+    50% {
+      transform: translate(15px, 15px);
+    }
+    75% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
   
   /* Main content container above the decorative images */
@@ -84,7 +95,7 @@
   
   /* Static heart (no animation) */
   .heart {
-    font-size: 5rem; /* 80px */
+    font-size: 5rem; /* 80px if base font size is 16px */
   }
   
   /* Headings and message */
@@ -101,7 +112,7 @@
   
   /* Increase font size for the question text */
   .question-text {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* Adjust this value as needed */
   }
   
   /* ALL buttons: pink color + a "pretty" hover animation */
@@ -127,7 +138,7 @@
     box-shadow: none;
   }
   
-  /* Question container for the interactive section */
+  /* Question container for the No button */
   .questionDiv {
     margin-top: 40px;
     display: none;
@@ -151,36 +162,5 @@
     margin-top: 20px;
     font-size: 1.75rem; /* 28px */
     font-weight: bold;
-  }
-  
-  /* Responsive adjustments for screens 600px or smaller */
-  @media (max-width: 600px) {
-    .container {
-      width: 95%;
-      padding: 15px;
-    }
-    
-    h1 {
-      font-size: 2rem;
-    }
-    
-    .message {
-      font-size: 1.25rem;
-    }
-    
-    .heart {
-      font-size: 4rem;
-    }
-    
-    button {
-      font-size: 1rem;
-      padding: 10px 20px;
-      margin-top: 20px;
-    }
-    
-    /* Hide decorative images on small screens to improve clarity */
-    .decorative-container {
-      display: none;
-    }
   }
   
