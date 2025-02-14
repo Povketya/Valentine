@@ -5,6 +5,11 @@
     box-sizing: border-box;
   }
   
+  /* Set a base font size for easier scaling */
+  html {
+    font-size: 16px;
+  }
+  
   body {
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
     font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -18,6 +23,12 @@
     text-align: center;
     flex-direction: column;
     position: relative; /* Needed for pseudo-element positioning */
+  }
+  
+  /* Ensure all img elements are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
   }
   
   /* Pseudo-element for background image */
@@ -45,11 +56,11 @@
     z-index: 0;
   }
   
+  /* Decorative images with a responsive width using clamp */
   .decorative-img {
     position: absolute;
-    width: 80px;
+    width: clamp(50px, 10vw, 80px); /* Scales between 50px and 80px */
     height: auto;
-    /* Add a gentle floating animation: moves left/right & up/down */
     animation: float 6s ease-in-out infinite;
   }
   
@@ -78,24 +89,24 @@
     width: 90%;
     max-width: 600px;
     background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-    padding: 20px;
+    padding: 1.25rem; /* 20px equivalent */
     border-radius: 10px;
   }
   
-  /* Static heart (no animation) */
+  /* Static heart (no animation) with responsive sizing */
   .heart {
-    font-size: 80px;
+    font-size: clamp(2.5rem, 5vw, 5rem); /* roughly between 40px and 80px */
   }
   
   /* Headings and message */
   h1 {
-    margin-top: 20px;
-    font-size: 36px;
+    margin-top: 1.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem); /* approx 28px to 36px */
   }
   
   .message {
-    font-size: 24px;
-    margin: 20px auto;
+    font-size: clamp(1.25rem, 3vw, 1.5rem); /* approx 20px to 24px */
+    margin: 1.25rem auto;
     line-height: 1.5;
   }
   
@@ -104,12 +115,11 @@
     background-color: #ff69b4;
     color: white;
     border: none;
-    padding: 12px 24px;
-    font-size: 20px;
+    padding: 0.75rem 1.5rem; /* roughly 12px 24px */
+    font-size: clamp(1rem, 2vw, 1.25rem); /* approx 16px to 20px */
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 30px;
-    /* Add smooth scaling and box-shadow transitions */
+    margin-top: 1.875rem; /* 30px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -127,15 +137,15 @@
   
   /* Question container with relative positioning for the No button to move around */
   .questionDiv {
-    margin-top: 40px;
+    margin-top: 2.5rem; /* 40px */
     display: none;
     position: relative;
-    min-height: 150px; /* enough space for the No button to move */
+    min-height: 9.375rem; /* 150px */
   }
   
   /* Option buttons share the base button styles, just smaller margins */
   .optionButton {
-    margin: 10px;
+    margin: 0.625rem; /* 10px */
   }
   
   /* Specifically for the No button: absolute so it can jump around */
@@ -147,25 +157,31 @@
   
   /* Result styling */
   #result {
-    margin-top: 20px;
-    font-size: 28px;
+    margin-top: 1.25rem;
+    font-size: clamp(1.75rem, 3vw, 1.75rem);
     font-weight: bold;
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
+  /* Additional responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
     h1 {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
     .message {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
     .heart {
-      font-size: 60px;
+      font-size: 2.5rem;
     }
     button {
-      font-size: 18px;
-      padding: 10px 20px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
     }
   }
   
