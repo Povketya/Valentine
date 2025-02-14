@@ -1,0 +1,171 @@
+/* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    position: relative; /* Needed for pseudo-element positioning */
+  }
+  
+  /* Pseudo-element for background image */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('zk.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3; /* Adjust opacity as desired */
+    z-index: -1;
+  }
+  
+  /* Decorative images container */
+  .decorative-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* let clicks pass through */
+    z-index: 0;
+  }
+  
+  .decorative-img {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    /* Add a gentle floating animation: moves left/right & up/down */
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(15px, 0);
+    }
+    50% {
+      transform: translate(15px, 15px);
+    }
+    75% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  /* Main content container above the decorative images */
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Static heart (no animation) */
+  .heart {
+    font-size: 80px;
+  }
+  
+  /* Headings and message */
+  h1 {
+    margin-top: 20px;
+    font-size: 36px;
+  }
+  
+  .message {
+    font-size: 24px;
+    margin: 20px auto;
+    line-height: 1.5;
+  }
+  
+  /* ALL buttons: pink color + a "pretty" hover animation */
+  button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    /* Add smooth scaling and box-shadow transitions */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* On hover, scale up and add a soft glow */
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* When pressed (active), briefly scale down for a click effect */
+  button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+  
+  /* Question container with relative positioning for the No button to move around */
+  .questionDiv {
+    margin-top: 40px;
+    display: none;
+    position: relative;
+    min-height: 150px; /* enough space for the No button to move */
+  }
+  
+  /* Option buttons share the base button styles, just smaller margins */
+  .optionButton {
+    margin: 10px;
+  }
+  
+  /* Specifically for the No button: absolute so it can jump around */
+  .no {
+    position: absolute;
+    /* Animate position changes in JS; smooth movement with transition */
+    transition: left 0.5s ease, top 0.5s ease;
+  }
+  
+  /* Result styling */
+  #result {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 28px;
+    }
+    .message {
+      font-size: 20px;
+    }
+    .heart {
+      font-size: 60px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+  }
+  
